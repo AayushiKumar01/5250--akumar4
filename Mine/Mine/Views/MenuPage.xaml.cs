@@ -17,11 +17,12 @@ namespace Mine.Views
         public MenuPage()
         {
             InitializeComponent();
-
+//10/01 - Changing Menu order so that About comes first
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Items, Title="Items" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+                new HomeMenuItem {Id = MenuItemType.About, Title="About" },
+                new HomeMenuItem {Id = MenuItemType.Items, Title="Items" }
+                
             };
 
             ListViewMenu.ItemsSource = menuItems;
