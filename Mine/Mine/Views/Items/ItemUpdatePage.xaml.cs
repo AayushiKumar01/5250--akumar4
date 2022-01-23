@@ -5,35 +5,44 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using Mine.Models;
+using Mine.ViewModels;
 
 namespace Mine.Views
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
-    public partial class NewItemPage : ContentPage
+    public partial class ItemUpdatePage : ContentPage
     {
         public ItemModel Item { get; set; }
 
-        public NewItemPage()
+        /// <summary>
+        /// Constructor that takes a viewModel
+        /// </summary>
+        /// <param name="viewModel"></param>
+        public ItemUpdatePage(ItemReadViewModel viewModel)
         {
             InitializeComponent();
-
-            Item = new ItemModel
-            {
-                Text = "Item name",
-                Description = "This is an item description."
-            };
+            Item = viewModel.Item;
 
             BindingContext = this;
         }
-
-        async void Save_Clicked(object sender, EventArgs e)
+        /// <summary>
+        /// Update selected item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void UpdateItem(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddItem", Item);
+            MessagingCenter.Send(this, "UpdateItem", Item);
             await Navigation.PopModalAsync();
         }
 
+        /// <summary>
+        /// Cancel Update operation
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();

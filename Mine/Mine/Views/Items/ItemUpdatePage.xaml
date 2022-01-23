@@ -4,12 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Mine.Views.NewItemPage"
-             Title="New Item">
+             x:Class="Mine.Views.ItemUpdatePage"
+             Title="Update">
     
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
-        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
+        <ToolbarItem Text="Save" Clicked="UpdateItem" IconImageSource="icon_save.png" />
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
@@ -18,7 +18,13 @@
             <Entry Text="{Binding Item.Text}" d:Text="Item name" FontSize="Small" />
             
             <Label Text="Description" FontSize="Medium" />
-            <Editor Text="{Binding Item.Description}" d:Text="Item description" FontSize="Small" Margin="0" />
+            <Editor 
+                Text="{Binding Item.Description}" 
+                d:Text="Item description" 
+                FontSize="Small" 
+                Margin="0" 
+                AutoSize="TextChanges"
+                />
 
             <Label Text="Value" FontSize="Medium" />
 

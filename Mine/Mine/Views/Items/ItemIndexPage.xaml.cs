@@ -16,15 +16,15 @@ namespace Mine.Views
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
-    public partial class ItemsPage : ContentPage
+    public partial class ItemIndexPage : ContentPage
     {
-        ItemsViewModel viewModel;
+        ItemIndexViewModel viewModel;
 
-        public ItemsPage()
+        public ItemIndexPage()
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new ItemsViewModel();
+            BindingContext = viewModel = new ItemIndexViewModel();
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
@@ -33,7 +33,7 @@ namespace Mine.Views
             if (item == null)
                 return;
 
-            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
+            await Navigation.PushAsync(new ItemReadPage(new ItemReadViewModel(item)));
 
             // Manually deselect item.
             ItemsListView.SelectedItem = null;
@@ -41,14 +41,14 @@ namespace Mine.Views
 
         async void AddItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
+            await Navigation.PushModalAsync(new NavigationPage(new ItemCreatePage()));
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
-            if (viewModel.Items.Count == 0)
+            if (viewModel.DataSet.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
         }
     }
