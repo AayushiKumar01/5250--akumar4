@@ -25,4 +25,10 @@
     <Folder Include="Views\NewFolder1\" />
     <Folder Include="Views\NewFolder\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\Items\ItemCreatePage.xaml.cs">
+      <DependentUpon>ItemCreatePage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>
