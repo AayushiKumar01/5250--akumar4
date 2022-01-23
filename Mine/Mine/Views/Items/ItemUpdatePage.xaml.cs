@@ -27,13 +27,22 @@ namespace Mine.Views
 
             BindingContext = this;
         }
-
-        async void Save_Clicked(object sender, EventArgs e)
+        /// <summary>
+        /// Update selected item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void UpdateItem(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddItem", Item);
+            MessagingCenter.Send(this, "UpdateItem", Item);
             await Navigation.PopModalAsync();
         }
 
+        /// <summary>
+        /// Cancel Update operation
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
