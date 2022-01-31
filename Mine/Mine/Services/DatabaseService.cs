@@ -35,9 +35,25 @@ namespace Mine.Services
             }
         }
 
-        public Task<bool> CreateAsync(ItemModel item)
+        /// <summary>
+        /// add item to database and return true if item was successfully inserted, otherwise false
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public async Task<bool> CreateAsync(ItemModel item)
         {
-            throw new NotImplementedException();
+            if(item == null)
+            {
+                return false;
+            }
+            var result = await Database.InsertAsync(item);
+
+            if(result == 0)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public Task<bool> UpdateAsync(ItemModel item)
