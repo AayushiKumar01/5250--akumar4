@@ -22,6 +22,7 @@ namespace UnitTests.Models
             Assert.IsNotNull(result);
         }
 
+        [Test]
         public void ItemModel_Set_Get_Valid_Default_Should_Pass()
         {
             //Arrange
@@ -43,6 +44,7 @@ namespace UnitTests.Models
             Assert.AreEqual(1, result.Value);
         }
 
+        [Test]
         public void ItemModel_Get_Valid_Default_Should_Pass()
         {
             //Arrange
