@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Mine.Models;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,11 +14,12 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
+            var result = new ItemModel();
 
             // Reset
 
             // Assert 
-            Assert.Pass();
+            Assert.IsNotNull(result);
         }
     }
 
