@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Helpers\" />
     <Folder Include="Views\NewFolder1\" />
     <Folder Include="Views\NewFolder\" />
   </ItemGroup>
