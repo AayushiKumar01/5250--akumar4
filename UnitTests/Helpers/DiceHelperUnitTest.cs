@@ -56,5 +56,20 @@ namespace UnitTests.Helpers
             
         }
 
+        [Test]
+        public void RollDice_Invalid_1Time_Negative_Sided_Should_Fail()
+        {
+            // Arrange
+
+            // Act
+            var result = DiceHelper.RollDice(1, -1);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result);
+        }
+
+
     }
 }
